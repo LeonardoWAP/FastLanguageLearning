@@ -21,7 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/oval_rectangle_background">
+            android:background="@drawable/english_language_background">
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -57,7 +57,6 @@
         android:id="@+id/input_word"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="202dp"
         android:background="@drawable/input_word_background"
         android:defaultFocusHighlightEnabled="false"
@@ -72,8 +71,8 @@
 
     <Button
         android:id="@+id/search_button"
-        android:layout_width="358dp"
-        android:layout_height="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="395dp"
         android:background="@drawable/search_button_background"
         android:fontFamily="sans-serif-condensed"
