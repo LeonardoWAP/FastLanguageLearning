@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Configurar um CountDownTimer para iniciar a SearchScreen após 5 segundos (ajuste conforme necessário)
-        object : CountDownTimer(5000, 1000) {
+        object : CountDownTimer(2000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 // O código aqui é executado a cada segundo do temporizador (opcional)
             }
