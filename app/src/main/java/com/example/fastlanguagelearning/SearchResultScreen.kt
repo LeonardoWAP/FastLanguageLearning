@@ -1,5 +1,9 @@
 package com.example.fastlanguagelearning
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.StyleSpan
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -32,12 +36,33 @@ class SearchResultScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        fun formatText(inputText: String): SpannableStringBuilder {
+            val spannableStringBuilder = SpannableStringBuilder(inputText)
+
+            val startIndex = inputText.indexOf("[")
+            val endIndex = inputText.indexOf("]")
+
+            if (startIndex != -1 && endIndex != -1 && endIndex > startIndex) {
+                spannableStringBuilder.setSpan(
+                    StyleSpan(Typeface.BOLD),
+                    startIndex,
+                    endIndex + 1,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+
+            return spannableStringBuilder
+        }
+
         val wordTitle = findViewById<TextView>(R.id.word_title)
         wordTitle.text = "Educationnnn"
 
         val phonetic = findViewById<TextView>(R.id.phonetic)
         phonetic.text = "/ˌedʒuˈkeɪʃn/"
-
+        
+        val meanings = findViewById<TextView>(R.id.meanings)
+        meanings.text = formatText("1) [uncountable, countable] a process of teaching, training and learning," +
+                " especially in schools, colleges or universities, to improve knowledge and develop skills")
 
 
     }

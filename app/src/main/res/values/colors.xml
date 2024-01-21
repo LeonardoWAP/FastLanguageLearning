@@ -4,4 +4,5 @@
     <color name="blue">#5BD6FD</color>
     <color name="grey">#F3F5F6</color>
     <color name="text_color">#052D39</color>
+    <color name="phonetic_color">#052D39</color>
 </resources>
