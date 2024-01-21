@@ -1,6 +1,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:width="358dp" android:height="64dp">
-        <shape>
+    <item android:width="46dp" android:height="46dp">
+        <shape android:shape="oval">
             <solid android:color="@color/blue"/>
             <corners android:radius="14dp" />
         </shape>

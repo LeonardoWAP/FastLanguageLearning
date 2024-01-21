@@ -1,13 +1,9 @@
 package com.example.fastlanguagelearning
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-val mock = [{"word":"education",
+/*val mock = [{"word":"education",
     "phonetic":"/ˌɛdjʊˈkeɪʃn̩/",
     "phonetics":[
     {"text":"/ˌɛdjʊˈkeɪʃn̩/",
@@ -29,38 +25,20 @@ val mock = [{"word":"education",
         "synonyms":[],
         "antonyms":[]}],
     "license":{"name":"CC BY-SA 3.0","url":"https://creativecommons.org/licenses/by-sa/3.0"},
-    "sourceUrls":["https://en.wiktionary.org/wiki/education"]}]
+    "sourceUrls":["https://en.wiktionary.org/wiki/education"]}]*/
 
-mock.map
-
-class SearchScreen : AppCompatActivity() {
+class SearchResultScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
+        setContentView(R.layout.activity_result)
 
-        val editText = findViewById<EditText>(R.id.input_word)
-        val searchButton =  findViewById<Button>(R.id.search_button)
+        val wordTitle = findViewById<TextView>(R.id.word_title)
+        wordTitle.text = "Educationnnn"
 
-        editText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
+        val phonetic = findViewById<TextView>(R.id.phonetic)
+        phonetic.text = "/ˌedʒuˈkeɪʃn/"
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s.isNullOrEmpty()) {
-                    searchButton.visibility =  View.INVISIBLE
-                } else {
-                    searchButton.visibility =  View.VISIBLE
-                }
-            }
 
-            override fun afterTextChanged(s: Editable?) {
-                if (s.isNullOrEmpty()) {
-                    editText.setTypeface(null, android.graphics.Typeface.NORMAL)
-                } else {
-                    editText.setTypeface(null, android.graphics.Typeface.BOLD)
-                }
-            }
-        })
 
     }
 
