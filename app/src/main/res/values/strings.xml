@@ -3,4 +3,5 @@
     <string name="softwareLogo">"Logo of the name of the application called Diction Master"</string>
     <string name="softwareName">"image of a school book with 2 letters A - Z"</string>
     <string name="fullscreenButton">"Toque para Mudar de Tela"</string>
+    <string name="byName">by Leonardo Willers</string>
 </resources>
