@@ -1,4 +1,5 @@
 package com.example.fastlanguagelearning
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,6 +15,10 @@ class SearchScreen : AppCompatActivity() {
 
         val editText = findViewById<EditText>(R.id.input_word)
         val searchButton =  findViewById<Button>(R.id.search_button)
+
+        searchButton.setOnClickListener {
+            switchToResultScreen()
+        }
 
         editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -36,6 +41,11 @@ class SearchScreen : AppCompatActivity() {
             }
         })
 
+    }
+
+    private fun switchToResultScreen() {
+        val intent = Intent(this, SearchResultScreen::class.java)
+        startActivity(intent)
     }
 
 }
