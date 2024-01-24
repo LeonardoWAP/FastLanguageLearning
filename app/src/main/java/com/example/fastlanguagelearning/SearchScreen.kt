@@ -44,7 +44,7 @@ class SearchScreen : AppCompatActivity() {
     }
 
     private fun switchToResultScreen() {
-        val intent = Intent(this, SearchResultScreen::class.java)
+        val intent = Intent(this, PurchaseScreen::class.java)
         startActivity(intent)
     }
 
