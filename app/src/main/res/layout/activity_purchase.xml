@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/whiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/softwareLogo"
+        android:layout_width="178dp"
+        android:layout_height="178dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/softwareLogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.443"
+        app:srcCompat="@drawable/icon" />
+
+    <ImageView
+        android:id="@+id/softwareName"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="140dp"
+        android:contentDescription="@string/softwareName"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/softwareLogo"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/title" />
+
+    <TextView
+        android:id="@+id/authorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/byName"
+        android:textColor="@color/text_color"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/softwareName" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
