@@ -6,4 +6,6 @@
     <color name="text_color">#052D39</color>
     <color name="phonetic_color">#052D39</color>
     <color name="bar_color">#E5E9EA</color>
+    <color name="subscribe_color">#FF50D4FC</color>
+    <color name="black">#000000</color>
 </resources>
