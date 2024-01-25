@@ -4,4 +4,5 @@
     <string name="softwareName">"image of a school book with 2 letters A - Z"</string>
     <string name="fullscreenButton">"Toque para Mudar de Tela"</string>
     <string name="byName">by Leonardo Willers</string>
+    <string name="newSearchTitle">That’s it for “%s”! ☺️"</string>
 </resources>
