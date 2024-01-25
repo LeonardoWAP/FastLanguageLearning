@@ -1,8 +1,11 @@
 package com.example.fastlanguagelearning
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -77,9 +80,37 @@ class SearchResultScreen : AppCompatActivity() {
     }
 
     private fun switchToResultScreen() {
+        Log.d("Debug", "Switching to Result Screen, searchesCount: $searchesCount")
+
+        handleSearchButtonClick()
+    }
+    private fun handleSearchButtonClick() {
+        if (searchesCount < MAX_SEARCHES_PER_DAY) {
+            searchesCount++
+            saveSearchCountAndDate()
+            switchToSearchScreen()
+        } else {
+            switchToPurchaseScreen()
+        }
+    }
+    private fun switchToSearchScreen() {
         val intent = Intent(this, SearchScreen::class.java)
         startActivity(intent)
-        finish()
+
     }
+
+    private fun switchToPurchaseScreen() {
+        val intent = Intent(this, PurchaseScreen::class.java)
+        startActivity(intent)
+    }
+
+    private fun saveSearchCountAndDate() {
+        val editor = sharedPreferences.edit()
+        editor.putInt(SEARCH_COUNT_KEY, searchesCount)
+        editor.putLong(LAST_SEARCH_DATE_KEY, System.currentTimeMillis())
+        editor.apply()
+    }
+
+
 
 }
