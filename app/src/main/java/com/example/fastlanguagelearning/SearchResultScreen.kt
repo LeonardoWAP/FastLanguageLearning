@@ -1,11 +1,8 @@
 package com.example.fastlanguagelearning
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -26,7 +23,7 @@ class SearchResultScreen : AppCompatActivity() {
 
         wordTitle.text = searchResponse!!.word.capitalize()
         phonetic.text = searchResponse.phonetics[0].text
-        newSearchtitle.text = "That’s it for “${searchResponse!!.word}”! ☺️"
+        newSearchtitle.text = getString(R.string.newSearchTitle, searchResponse.word)
 
         val linearLayoutMeanings: LinearLayout = findViewById(R.id.meaning)
 
@@ -62,7 +59,7 @@ class SearchResultScreen : AppCompatActivity() {
         }
 
         searchButton.setOnClickListener {
-            switchToResultScreen()
+            switchToSearchScreen()
         }
     }
 
@@ -79,38 +76,10 @@ class SearchResultScreen : AppCompatActivity() {
         return "$correctPosition) [ $speech ] $text"
     }
 
-    private fun switchToResultScreen() {
-        Log.d("Debug", "Switching to Result Screen, searchesCount: $searchesCount")
-
-        handleSearchButtonClick()
-    }
-    private fun handleSearchButtonClick() {
-        if (searchesCount < MAX_SEARCHES_PER_DAY) {
-            searchesCount++
-            saveSearchCountAndDate()
-            switchToSearchScreen()
-        } else {
-            switchToPurchaseScreen()
-        }
-    }
     private fun switchToSearchScreen() {
         val intent = Intent(this, SearchScreen::class.java)
         startActivity(intent)
+        finish()
 
     }
-
-    private fun switchToPurchaseScreen() {
-        val intent = Intent(this, PurchaseScreen::class.java)
-        startActivity(intent)
-    }
-
-    private fun saveSearchCountAndDate() {
-        val editor = sharedPreferences.edit()
-        editor.putInt(SEARCH_COUNT_KEY, searchesCount)
-        editor.putLong(LAST_SEARCH_DATE_KEY, System.currentTimeMillis())
-        editor.apply()
-    }
-
-
-
 }
