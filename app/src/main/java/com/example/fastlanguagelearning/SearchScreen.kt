@@ -7,8 +7,14 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.serialization.json.Json
+import models.SearchResponse
+import org.json.JSONArray
+import java.net.HttpURLConnection
+import java.net.URL
 
 class SearchScreen : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -16,8 +22,33 @@ class SearchScreen : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.input_word)
         val searchButton =  findViewById<Button>(R.id.search_button)
 
+        val json = Json {
+            ignoreUnknownKeys = true
+        }
+
         searchButton.setOnClickListener {
-            switchToResultScreen()
+            val wordToSearch = editText.text.toString()
+            Thread{
+                val url = URL("https://api.dictionaryapi.dev/api/v2/entries/en/${wordToSearch}")
+                val conn = url.openConnection() as HttpURLConnection
+
+                try{
+                    val data = conn.inputStream.bufferedReader().readText()
+
+                   val jsonArray = JSONArray(data)
+                   val jsonStringList = mutableListOf<String>()
+                    for (i in 0 until jsonArray.length()) {
+                    jsonStringList.add(jsonArray.getJSONObject(i).toString())
+                   }
+
+                   val searchResponseList = jsonStringList.map {
+                       json.decodeFromString<SearchResponse>(it)
+                   }
+                    switchToResultScreen(searchResponseList[0])
+                }finally {
+                    conn.disconnect()
+                }
+            }.start()
         }
 
         editText.addTextChangedListener(object : TextWatcher {
@@ -40,11 +71,12 @@ class SearchScreen : AppCompatActivity() {
                 }
             }
         })
-
     }
 
-    private fun switchToResultScreen() {
-        val intent = Intent(this, PurchaseScreen::class.java)
+    private fun switchToResultScreen(searchResponse: SearchResponse) {
+        val intent = Intent(this, SearchResultScreen::class.java)
+        intent.putExtra("searchResponse", searchResponse)
+
         startActivity(intent)
     }
 
