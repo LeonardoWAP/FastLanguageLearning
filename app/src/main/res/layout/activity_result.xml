@@ -76,7 +76,9 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/audio_speaker_on" />
+                            app:srcCompat="@drawable/audio_speaker_on"
+                            android:clickable="true"
+                            android:onClick="onSpeakerClick" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

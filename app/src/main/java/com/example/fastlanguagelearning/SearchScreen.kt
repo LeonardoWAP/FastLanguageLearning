@@ -22,6 +22,7 @@ class SearchScreen : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.input_word)
         val searchButton =  findViewById<Button>(R.id.search_button)
 
+
         val json = Json {
             ignoreUnknownKeys = true
         }
