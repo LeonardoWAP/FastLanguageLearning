@@ -62,7 +62,7 @@ class SearchScreen : AppCompatActivity() {
         }
     }
     private fun getWordMeaning(word: String){
-        val retrofitClient = NetworkUtils.getRetrofitInstance("https://api.dictionaryapi.dev/")
+        val retrofitClient = NetworkUtils.getRetrofitInstance("https://api.dictionaryapi.dev/", this )
         val endpoint = retrofitClient.create(Endpoint::class.java)
 
         val json = Json {
@@ -71,6 +71,9 @@ class SearchScreen : AppCompatActivity() {
 
         endpoint.getWordMeaning(word).enqueue(object : retrofit2.Callback<JsonArray>{
             override fun onResponse(call: Call<JsonArray>, response: Response<JsonArray>) {
+                if (response.raw().cacheResponse() != null)  {
+                    Log.d("API Call", "Cache")
+                }
 
                val jsonArray = JSONArray(response.body().toString())
 
