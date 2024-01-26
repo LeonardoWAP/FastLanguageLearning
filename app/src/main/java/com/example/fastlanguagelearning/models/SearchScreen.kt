@@ -1,4 +1,4 @@
-package com.example.fastlanguagelearning
+package com.example.fastlanguagelearning.models
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fastlanguagelearning.R
 import domain.model.SearchResponse
 import kotlinx.serialization.json.Json
 import org.json.JSONArray

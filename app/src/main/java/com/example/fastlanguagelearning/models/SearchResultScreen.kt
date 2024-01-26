@@ -1,4 +1,4 @@
-package com.example.fastlanguagelearning
+package com.example.fastlanguagelearning.models
 
 import android.content.Intent
 import android.graphics.Typeface
@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fastlanguagelearning.R
 import domain.model.SearchResponse
 
 class SearchResultScreen : AppCompatActivity() {

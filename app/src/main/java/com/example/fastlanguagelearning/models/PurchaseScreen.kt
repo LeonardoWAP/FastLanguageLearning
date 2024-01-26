@@ -1,4 +1,4 @@
-package com.example.fastlanguagelearning
+package com.example.fastlanguagelearning.models
 import android.os.Bundle
 import android.text.Spannable
 import android.text.style.ForegroundColorSpan
@@ -6,6 +6,7 @@ import android.text.style.StyleSpan
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.fastlanguagelearning.R
 
 class PurchaseScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

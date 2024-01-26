@@ -1,10 +1,11 @@
-package com.example.fastlanguagelearning
+package com.example.fastlanguagelearning.models
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
+import com.example.fastlanguagelearning.R
 import com.example.fastlanguagelearning.databinding.ActivityMainBinding
 import local.db.AppDataBase
 
@@ -21,8 +22,6 @@ class MainActivity : AppCompatActivity() {
             applicationContext,
             AppDataBase::class.java,  getString(R.string.app_database_name)
         ).build()
-
-        
 
 
 

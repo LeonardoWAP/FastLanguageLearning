@@ -15,16 +15,16 @@
         android:theme="@style/Theme.FastLanguageLearning"
         tools:targetApi="31">
         <activity
-            android:name=".SearchResultScreen"
+            android:name=".models.SearchResultScreen"
             android:exported="false" />
         <activity
-            android:name=".SearchScreen"
+            android:name=".models.SearchScreen"
             android:exported="false" />
         <activity
-            android:name=".PurchaseScreen"
+            android:name=".models.PurchaseScreen"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".models.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
