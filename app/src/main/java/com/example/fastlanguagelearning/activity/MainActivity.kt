@@ -1,4 +1,4 @@
-package com.example.fastlanguagelearning
+package com.example.fastlanguagelearning.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         }.start()
     }
     private fun switchToSearchScreen() {
-        val intent = Intent(this, SearchScreen::class.java)
+        val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
         finish()
     }

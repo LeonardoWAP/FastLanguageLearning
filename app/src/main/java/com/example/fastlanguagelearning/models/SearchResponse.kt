@@ -1,4 +1,4 @@
-package models
+package com.example.fastlanguagelearning.models
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
