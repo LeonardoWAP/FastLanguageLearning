@@ -7,8 +7,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import domain.model.SearchResponse
 import kotlinx.serialization.json.Json
-import models.SearchResponse
 import org.json.JSONArray
 import java.net.HttpURLConnection
 import java.net.URL
