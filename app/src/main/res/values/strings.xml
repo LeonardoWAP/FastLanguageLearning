@@ -5,4 +5,8 @@
     <string name="fullscreenButton">"Toque para Mudar de Tela"</string>
     <string name="byName">by Leonardo Willers</string>
     <string name="newSearchTitle">That’s it for “%s”! ☺️"</string>
+    <string name="searchText">Search</string>
+    <string name="typeWord">Type a word…</string>
+    <string name="english">ENGLISH</string>
+
 </resources>
