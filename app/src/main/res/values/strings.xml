@@ -1,8 +1,22 @@
 <resources>
     <string name="app_name">FastLanguageLearning</string>
-    <string name="softwareLogo">"Logo of the name of the application called Diction Master"</string>
-    <string name="softwareName">"image of a school book with 2 letters A - Z"</string>
-    <string name="fullscreenButton">"Toque para Mudar de Tela"</string>
-    <string name="byName">by Leonardo Willers</string>
-    <string name="newSearchTitle">That’s it for “%s”! ☺️"</string>
+    <string name="software_logo">"Logo of the name of the application called Diction Master"</string>
+    <string name="software_name">"image of a school book with 2 letters A - Z"</string>
+    <string name="fullscreen_button">"Toque para Mudar de Tela"</string>
+    <string name="by_name">by Leonardo Willers</string>
+    <string name="new_search_title">That’s it for “%s”! ☺️"</string>
+    <string name="new_search_button_title">New Search</string>
+    <string name="new_search_subtitle">Try another search now!</string>
+    <string name="searchText">Search</string>
+    <string name="type_word">Type a word…</string>
+    <string name="english">ENGLISH</string>
+    <string name="subscribe_button">SUBSCRIBE</string>
+    <string name="purchase_subscribe_title"> Subscribe now to get <font fgcolor="#5BD6FD">unlimited</font> searches and ful access to <font fgcolor="#5BD6FD"> all features. </font> </string>
+    <string name="purchase_subscribe_info"><b>Try 7 Days Free</b>, then only <b>$19,99</b> per year. Cancel anytime.</string>
+    <string name="dividing_line">Diviser Line</string>
+    <string name="phonetic_text">phonetic Text</string>
+    <string name="word_title">Word</string>
+    <string name="speaker">speaker</string>
+    <string name="flag_image">United Kingdom Flag\n</string>
+
 </resources>

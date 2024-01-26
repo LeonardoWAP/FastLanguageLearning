@@ -30,8 +30,8 @@ class SearchResultScreen : AppCompatActivity() {
         val searchButton =  findViewById<Button>(R.id.new_search_button)
 
         setTextInTextView(searchResponse!!.word.capitalize(), R.id.word_title)
-        setTextInTextView(getString(R.string.newSearchTitle, searchResponse.word), R.id.new_search_title)
-        setTextInTextView(getString(R.string.newSearchTitle, searchResponse.word), R.id.new_search_title)
+        setTextInTextView(getString(R.string.new_search_title, searchResponse.word), R.id.new_search_title)
+        setTextInTextView(getString(R.string.new_search_title, searchResponse.word), R.id.new_search_title)
 
         setPhoneticTextAndAudio(searchResponse.phonetics)
 
@@ -42,7 +42,8 @@ class SearchResultScreen : AppCompatActivity() {
         }
 
         searchButton.setOnClickListener {
-            switchToSearchScreen()
+            //switchToSearchScreen()
+            switchToPurchaseScreen()
         }
     }
 
@@ -56,7 +57,7 @@ class SearchResultScreen : AppCompatActivity() {
     }
 
     private fun setMeaningsInScreen(meanings: List<Meaning>){
-        val linearLayoutMeanings = findViewById<LinearLayout>(R.id.meaning)
+        val linearLayoutMeanings = findViewById<LinearLayout>(R.id.meanings_section)
         var definitionCount = 0
 
         val textViewDefinitionParams = LinearLayout.LayoutParams(
@@ -95,7 +96,7 @@ class SearchResultScreen : AppCompatActivity() {
                 break
             }
         }
-        setTextInTextView(phoneticText!!, R.id.phonetic)
+        setTextInTextView(phoneticText!!, R.id.phonetic_text)
     }
 
     private fun setTextInTextView(text: String, textViewId: Int){
@@ -118,6 +119,12 @@ class SearchResultScreen : AppCompatActivity() {
 
     private fun switchToSearchScreen() {
         val intent = Intent(this, SearchScreen::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun switchToPurchaseScreen() {
+        val intent = Intent(this, PurchaseScreen::class.java)
         startActivity(intent)
         finish()
     }
