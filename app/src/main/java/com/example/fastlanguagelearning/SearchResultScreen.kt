@@ -42,8 +42,8 @@ class SearchResultScreen : AppCompatActivity() {
         }
 
         searchButton.setOnClickListener {
-            //switchToSearchScreen()
-            switchToPurchaseScreen()
+            switchToSearchScreen()
+           // switchToPurchaseScreen()
         }
     }
 
