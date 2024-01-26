@@ -8,13 +8,14 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="420dp"
-        tools:layout_editor_absoluteX="1dp">
+        tools:layout_editor_absoluteX="1dp"
+        tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/girl_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/purchase_img"
@@ -24,33 +25,34 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/software_info_section"
         android:layout_width="415dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="356dp"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        tools:layout_editor_absoluteX="-2dp">
+        app:layout_constraintTop_toTopOf="@+id/header"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/softwareLogo3"
+            android:id="@+id/software_logo_purchase_screen"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:contentDescription="@string/softwareLogo"
+            android:contentDescription="@string/software_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/icon"
             tools:layout_editor_absoluteY="25dp" />
 
         <ImageView
-            android:id="@+id/softwareName3"
+            android:id="@+id/software_name_purchase_screen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
-            android:contentDescription="@string/softwareName"
+            android:contentDescription="@string/software_name"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/softwareLogo3"
+            app:layout_constraintTop_toTopOf="@+id/software_logo_purchase_screen"
             app:srcCompat="@drawable/title" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -58,20 +60,21 @@
         android:id="@+id/subscribe"
         android:layout_width="376dp"
         android:layout_height="57dp"
-        android:text="Subscribe now to get unlimited searches and full access to all features."
+        android:text="@string/purchase_subscribe_title"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/software_info_section" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/subscribe_info"
         android:layout_width="324dp"
         android:layout_height="46dp"
         android:layout_marginTop="22dp"
-        android:text="Try 7 Days Free, then only $19,99 per year. Cancel anytime."
+        android:text="@string/purchase_subscribe_info"
         android:textAlignment="center"
         android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/subscribe" />
 
     <Button
-        android:id="@+id/try_button4"
+        android:id="@+id/subscribe_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
@@ -88,13 +91,16 @@
         android:background="@drawable/search_button_background"
         android:fontFamily="sans-serif-condensed"
         android:letterSpacing="0.018"
-        android:text="SUBSCRIBE"
+        android:text="@string/subscribe_button"
         android:textAllCaps="true"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/subscribe_info"
+        app:layout_constraintVertical_bias="0.039" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

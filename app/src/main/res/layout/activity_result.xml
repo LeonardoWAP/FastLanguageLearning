@@ -9,8 +9,7 @@
     tools:context=".SearchResultScreen">
 
     <ScrollView
-
-        android:id="@+id/scrollView2"
+        android:id="@+id/definition_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="H,1:1.47"
@@ -23,12 +22,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintDimensionRatio="H,1:0.1"
-
-            >
+            app:layout_constraintDimensionRatio="H,1:0.1">
 
             <LinearLayout
-                android:id="@+id/section1"
+                android:id="@+id/header_word_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -46,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="13dp"
-                    android:text="Education"
+                    android:text="@string/word_title"
                     android:textSize="45sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +56,8 @@
                     android:layout_marginTop="0dp"
                     android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/word_title">
+                    app:layout_constraintTop_toBottomOf="@+id/word_title"
+                    android:baselineAligned="false">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/speaker"
@@ -77,37 +75,34 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/audio_speaker_on"
-                            android:clickable="true"
-                            android:onClick="onSpeakerClick" />
+                            android:contentDescription="@string/speaker" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/text"
+                        android:id="@+id/phonetic"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/phonetic"
+                            android:id="@+id/phonetic_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="11dp"
                             android:fontFamily="sans-serif-condensed-medium"
-                            android:text="BLABLA"
+                            android:text="@string/phonetic_text"
                             android:textColor="@color/phonetic_color"
-                            android:textSize="22dp"
+                            android:textSize="22sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
                 </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/meaning"
+                android:id="@+id/meanings_section"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -116,9 +111,7 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/section1">
-
-
+                app:layout_constraintTop_toBottomOf="@+id/header_word_info">
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -141,14 +134,16 @@
             android:layout_marginBottom="30dp"
             android:background="@color/bar_color"
             app:layout_constraintBottom_toTopOf="@+id/new_search_section"
-            tools:layout_editor_absoluteX="30dp" />
+            tools:layout_editor_absoluteX="30dp"
+            android:contentDescription="@string/dividing_line" />
 
         <TextView
             android:id="@+id/new_search_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="27dp"
+            android:layout_marginStart="27dp"
             android:layout_marginTop="0dp"
+            android:text = "@string/new_search_title"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -156,10 +151,10 @@
             android:id="@+id/new_search_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="27dp"
+            android:layout_marginStart="27dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="20dp"
-            android:text="Try another search now!"
+            android:text="@string/new_search_subtitle"
             android:textSize="16sp"
             tools:layout_editor_absoluteX="30dp"
             tools:layout_editor_absoluteY="593dp" />
@@ -174,9 +169,9 @@
             android:background="@drawable/search_button_background"
             android:fontFamily="sans-serif-condensed"
             android:letterSpacing="0.018"
-            android:text="New Search"
+            android:text="@string/new_search_button_title"
             android:textAllCaps="true"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:backgroundTint="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"

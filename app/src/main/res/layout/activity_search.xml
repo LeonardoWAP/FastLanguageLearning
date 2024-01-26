@@ -9,7 +9,7 @@
     tools:context=".SearchScreen">
 
     <LinearLayout
-        android:id="@+id/english"
+        android:id="@+id/language_flag"
         android:layout_width="130dp"
         android:layout_height="40dp"
         android:layout_marginTop="38dp"
@@ -24,7 +24,7 @@
             android:background="@drawable/english_language_background">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/flag_img"
                 android:layout_width="26dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="8dp"
@@ -33,20 +33,21 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/england_flag" />
+                app:srcCompat="@drawable/united_kingdom_flag"
+                android:contentDescription="@string/flag_image" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/flag_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:fontFamily="sans-serif-condensed-light"
                 android:letterSpacing="0.018"
-                android:text="ENGLISH"
+                android:text="@string/english"
                 android:textAlignment="center"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/flag_img"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.437" />
 
@@ -61,7 +62,7 @@
         android:background="@drawable/input_word_background"
         android:defaultFocusHighlightEnabled="false"
         android:ems="15"
-        android:hint="Type a word..."
+        android:hint="@string/type_word"
         android:inputType="text"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,9 +78,9 @@
         android:background="@drawable/search_button_background"
         android:fontFamily="sans-serif-condensed"
         android:letterSpacing="0.018"
-        android:text="Search"
+        android:text="@string/searchText"
         android:textAllCaps="true"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="invisible"
         app:backgroundTint="@color/blue"

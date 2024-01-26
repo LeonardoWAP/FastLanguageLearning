@@ -4,26 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
-    <View
-        android:id="@+id/whiteBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <ImageView
-        android:id="@+id/softwareLogo"
+        android:id="@+id/software_logo"
         android:layout_width="178dp"
         android:layout_height="178dp"
         android:layout_marginBottom="32dp"
-        android:contentDescription="@string/softwareLogo"
+        android:contentDescription="@string/software_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -33,33 +22,31 @@
         app:srcCompat="@drawable/icon" />
 
     <ImageView
-        android:id="@+id/softwareName"
+        android:id="@+id/software_name"
         android:layout_width="350dp"
         android:layout_height="100dp"
         android:layout_marginTop="140dp"
-        android:contentDescription="@string/softwareName"
+        android:contentDescription="@string/software_name"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/softwareLogo"
+        app:layout_constraintTop_toTopOf="@+id/software_logo"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/title" />
 
     <TextView
-        android:id="@+id/authorName"
+        android:id="@+id/author_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="@string/byName"
+        android:text="@string/by_name"
         android:textColor="@color/text_color"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/softwareName" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/software_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>
