@@ -1,4 +1,4 @@
-package com.example.fastlanguagelearning
+package com.example.fastlanguagelearning.activity
 
 import android.content.Intent
 import android.graphics.Typeface
@@ -12,11 +12,12 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import models.Meaning
-import models.Phonetic
-import models.SearchResponse
+import com.example.fastlanguagelearning.R
+import com.example.fastlanguagelearning.models.Meaning
+import com.example.fastlanguagelearning.models.Phonetic
+import com.example.fastlanguagelearning.models.SearchResponse
 
-class SearchResultScreen : AppCompatActivity() {
+class SearchResultActivity : AppCompatActivity() {
 
     private var mediaPlayer: MediaPlayer? = null
     private var phoneticAudio: String? = null
@@ -30,8 +31,12 @@ class SearchResultScreen : AppCompatActivity() {
         val searchButton =  findViewById<Button>(R.id.new_search_button)
 
         setTextInTextView(searchResponse!!.word.capitalize(), R.id.word_title)
-        setTextInTextView(getString(R.string.new_search_title, searchResponse.word), R.id.new_search_title)
-        setTextInTextView(getString(R.string.new_search_title, searchResponse.word), R.id.new_search_title)
+        setTextInTextView(getString(R.string.new_search_title, searchResponse.word),
+            R.id.new_search_title
+        )
+        setTextInTextView(getString(R.string.new_search_title, searchResponse.word),
+            R.id.new_search_title
+        )
 
         setPhoneticTextAndAudio(searchResponse.phonetics)
 
@@ -118,13 +123,13 @@ class SearchResultScreen : AppCompatActivity() {
     }
 
     private fun switchToSearchScreen() {
-        val intent = Intent(this, SearchScreen::class.java)
+        val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
         finish()
     }
 
     private fun switchToPurchaseScreen() {
-        val intent = Intent(this, PurchaseScreen::class.java)
+        val intent = Intent(this, PurchaseActivity::class.java)
         startActivity(intent)
         finish()
     }

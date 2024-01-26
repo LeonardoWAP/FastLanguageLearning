@@ -1,11 +1,12 @@
-package models
+package com.example.fastlanguagelearning.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 import kotlinx.serialization.Serializable
+
 @Parcelize
 @Serializable
-data class Meaning (
-    val definitions : List<Definition>,
-    val partOfSpeech: String
+data class Definition (
+    val definition : String,
+    val example : String? = ""
 ): Parcelable

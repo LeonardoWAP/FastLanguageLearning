@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">FastLanguageLearning</string>
+    <string name="app_database_name">fast_language_learning_database</string>
     <string name="software_logo">"Logo of the name of the application called Diction Master"</string>
     <string name="software_name">"image of a school book with 2 letters A - Z"</string>
     <string name="fullscreen_button">"Toque para Mudar de Tela"</string>
@@ -18,5 +19,4 @@
     <string name="word_title">Word</string>
     <string name="speaker">speaker</string>
     <string name="flag_image">United Kingdom Flag\n</string>
-
 </resources>
