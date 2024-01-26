@@ -1,4 +1,4 @@
-package models
+package domain.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
