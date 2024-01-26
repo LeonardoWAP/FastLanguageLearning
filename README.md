@@ -15,7 +15,10 @@ No desenvolvimento deste projeto, a escolha estratégica de tecnologias visou cr
 - O gerenciamento inteligente de dados foi alcançado pela implementação do sistema de cache, utilizando a combinação do OkHttpClient com o Retrofit. Essa abordagem possibilitou o armazenamento temporário local de respostas de requisições HTTP, reduzindo a necessidade de solicitações repetitivas à API e otimizando o desempenho geral do aplicativo.
 #### Room (Persistência de Dados Locais):
 - Para contabilizar as requisições realizadas ao longo do dia, incorporou-se o Room, uma biblioteca de persistência oferecida pelo Android. O Room facilitou a criação e a administração eficiente do banco de dados local, contribuindo para a precisão e a confiabilidade na contagem de requisições.
-- 
+
+#### MediaPlayer 
+- Para reproduzir o audio da fonetica da paralavra pesquisada foi utilizado a biblioteca MediaPlayer.
+
 ## 2. Arquitetura:
 
 ### Padrão de Arquitetura - MVVM:
@@ -71,9 +74,10 @@ Para a construção do projeto, foram criadas as data classes SearchResponse, De
 ## 4. Entidades 
 Para a construção do projeto, foi criada a entidade RequestCount com o propósito de registrar diariamente a quantidade de requisições feitas pelo usuário no aplicativo. Quando uma requisição é realizada com sucesso, uma instância da entidade é criada, armazenando a data da requisição no formato Long. À medida que o usuário efetua outras requisições no mesmo dia, o campo count é atualizado. Dessa forma, o banco de dados mantém a informação sobre a quantidade total de requisições realizadas em um determinado dia.
 
-![image](https://github.com/LeonardoWAP/FastLanguageLearning/assets/57870208/323a5cf1-9b50-4fe3-a9c4-4b9492758acc)
+<img src="https://github.com/LeonardoWAP/FastLanguageLearning/assets/57870208/323a5cf1-9b50-4fe3-a9c4-4b9492758acc" width="50%">
 
-
+### Video Mostrando O funcionamento do aplicativo
+https://github.com/LeonardoWAP/FastLanguageLearning/assets/57870208/4efd6863-1862-45a6-b896-621cb0bdf5af
 
 ## Foto das telas do projeto
 
@@ -84,6 +88,8 @@ Para a construção do projeto, foi criada a entidade RequestCount com o propós
 <img src="https://github.com/LeonardoWAP/FastLanguageLearning/assets/57870208/cb47737f-0833-4755-8473-c3f6cd90aa90" width="50%">
 
 <img src="https://github.com/LeonardoWAP/FastLanguageLearning/assets/57870208/4fffd0e7-b6f6-496b-b9b6-969ccc1bb91f" width="50%">
+
+
 
 
 
