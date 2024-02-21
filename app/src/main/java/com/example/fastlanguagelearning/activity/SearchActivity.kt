@@ -128,7 +128,6 @@ class SearchActivity : AppCompatActivity() {
 
     fun getDayInMillis(): Long {
         val calendar = Calendar.getInstance()
-
         calendar.set(Calendar.HOUR_OF_DAY, 0)
         calendar.set(Calendar.MINUTE, 0)
         calendar.set(Calendar.SECOND, 0)
