@@ -1,4 +1,5 @@
 package com.example.fastlanguagelearning.activity
+
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -7,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fastlanguagelearning.R
 import com.example.fastlanguagelearning.api.Endpoint
@@ -22,6 +24,7 @@ import retrofit2.Call
 import retrofit2.Response
 import java.util.Calendar
 
+
 class SearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,15 +32,25 @@ class SearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
         val insertedWordEditText = findViewById<EditText>(R.id.input_word)
+
+        if (intent.getBooleanExtra("openKeyboard", false)) {
+            insertedWordEditText.requestFocus()
+        }
+
         val searchButton =  findViewById<Button>(R.id.search_button)
+        val progressBar =  findViewById<ProgressBar>(R.id.progress_bar)
+        progressBar.visibility =  View.INVISIBLE
 
         searchButton.setOnClickListener {
             val wordToSearch = insertedWordEditText.text.toString()
+            searchButton.visibility =  View.INVISIBLE
+            progressBar.visibility =  View.VISIBLE
             Thread{
 
                 val today =  getDayInMillis()
                 val db = DataBaseManager.getDatabase(this)
                 val requestCountDao = db.requestCountDao()
+                requestCountDao.deleteAll() // TODO: apagar isso  
 
                 val requestToday = requestCountDao.getByDay(today)
 
@@ -46,6 +59,7 @@ class SearchActivity : AppCompatActivity() {
 
                 getWordMeaning(wordToSearch, countIncremented, today, requestCountDao)
             }.start()
+
         }
 
         insertedWordEditText.addTextChangedListener(object : TextWatcher {
