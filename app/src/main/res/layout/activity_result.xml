@@ -8,177 +8,196 @@
     android:textAlignment="center"
     tools:context=".activity.SearchResultActivity">
 
-    <ScrollView
-        android:id="@+id/definition_scroll_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="H,1:1.47"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        app:layout_constraintEnd_toEndOf="@+id/new_search_section"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintDimensionRatio="H,1:0.1">
+            android:layout_weight="0.9"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/header_word_info"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="53dp"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_weight="99"
-                tools:ignore="NotSibling">
+            <ScrollView
+                android:id="@+id/definition_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
 
-                <TextView
-                    android:id="@+id/word_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="13dp"
-                    android:text="@string/word_title"
-                    android:textSize="45sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                >
 
-                <LinearLayout
-                    android:id="@+id/phonetic_line"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/word_title"
-                    android:baselineAligned="false">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintDimensionRatio="H,1:0.1">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/speaker"
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/circle_speaker_button">
-
-                        <ImageView
-                            android:id="@+id/speaker_img"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/audio_speaker_on"
-                            android:contentDescription="@string/speaker" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/phonetic"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+                    <LinearLayout
+                        android:id="@+id/header_word_info"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="53dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_weight="99"
+                        tools:ignore="NotSibling">
 
                         <TextView
-                            android:id="@+id/phonetic_text"
+                            android:id="@+id/word_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="11dp"
-                            android:fontFamily="sans-serif-condensed-medium"
-                            android:text="@string/phonetic_text"
-                            android:textColor="@color/phonetic_color"
-                            android:textSize="22sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginEnd="13dp"
+                            android:fontFamily="@font/roboto_condensed_bold"
+                            android:text="@string/word_title"
+                            android:textColor="@color/text_color"
+                            android:textSize="45sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/meanings_section"
-                android:layout_width="0dp"
+                        <LinearLayout
+                            android:id="@+id/phonetic_line"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/word_title">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/speaker"
+                                android:layout_width="46dp"
+                                android:layout_height="46dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/circle_speaker_button">
+
+                                <Button
+                                    android:id="@+id/speaker_button"
+                                    android:layout_width="wrap_content"
+
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/blue"
+                                    android:contentDescription="@string/speaker"
+
+                                    android:drawableTop="@drawable/audio_speaker_on"
+                                    android:drawablePadding="8dp"
+                                    android:padding="10dp"
+
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/phonetic"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/phonetic_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="11dp"
+                                    android:fontFamily="@font/roboto_condensed_light"
+                                    android:text="@string/phonetic_text"
+                                    android:textColor="@color/phonetic_color"
+                                    android:textSize="22sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/meanings_section"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="35dp"
+                        android:layout_marginEnd="53dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/header_word_info"></LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/new_search_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FEFEFE"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/bar_color"
+                android:contentDescription="@string/dividing_line"
+                app:layout_constraintBottom_toTopOf="@+id/new_search_section"
+                tools:layout_editor_absoluteX="30dp" />
+
+            <TextView
+                android:id="@+id/new_search_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="53dp"
-                android:orientation="vertical"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:text="@string/new_search_title"
+                android:textColor="@color/text_color"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/new_search_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/roboto_condensed_light"
+                android:text="@string/new_search_subtitle"
+                android:textSize="16sp"
+                tools:layout_editor_absoluteX="30dp"
+                android:textColor="@color/text_color"
+                tools:layout_editor_absoluteY="593dp" />
+
+            <Button
+                android:id="@+id/new_search_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="27dp"
+                android:layout_marginRight="27dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/search_button_background"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:letterSpacing="0.018"
+                android:text="@string/new_search_button_title"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/blue"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/header_word_info">
-            </LinearLayout>
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/new_search_section"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FEFEFE"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_weight="100"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="30dp">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginBottom="30dp"
-            android:background="@color/bar_color"
-            app:layout_constraintBottom_toTopOf="@+id/new_search_section"
-            tools:layout_editor_absoluteX="30dp"
-            android:contentDescription="@string/dividing_line" />
-
-        <TextView
-            android:id="@+id/new_search_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="27dp"
-            android:layout_marginTop="0dp"
-            android:text = "@string/new_search_title"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/new_search_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="27dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="20dp"
-            android:text="@string/new_search_subtitle"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="593dp" />
-
-        <Button
-            android:id="@+id/new_search_button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="27dp"
-            android:layout_marginRight="27dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/search_button_background"
-            android:fontFamily="sans-serif-condensed"
-            android:letterSpacing="0.018"
-            android:text="@string/new_search_button_title"
-            android:textAllCaps="true"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

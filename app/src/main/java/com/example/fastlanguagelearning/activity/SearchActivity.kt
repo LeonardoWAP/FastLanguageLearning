@@ -1,4 +1,5 @@
 package com.example.fastlanguagelearning.activity
+
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -7,6 +8,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fastlanguagelearning.R
 import com.example.fastlanguagelearning.api.Endpoint
@@ -22,6 +25,7 @@ import retrofit2.Call
 import retrofit2.Response
 import java.util.Calendar
 
+
 class SearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +34,29 @@ class SearchActivity : AppCompatActivity() {
 
         val insertedWordEditText = findViewById<EditText>(R.id.input_word)
         val searchButton =  findViewById<Button>(R.id.search_button)
+        val errorButton =  findViewById<Button>(R.id.error_message_button)
+
+        val progressBar =  findViewById<ProgressBar>(R.id.progress_bar)
+        val modalError = findViewById<LinearLayout>(R.id.linear_layout_error_message)
+
+
+        if (intent.getBooleanExtra("openKeyboard", false)) {
+            insertedWordEditText.requestFocus()
+        }
+
+
+        progressBar.visibility =  View.GONE
+
+        errorButton.setOnClickListener {
+            modalError.visibility = View.GONE
+            searchButton.visibility = View.VISIBLE
+        }
+
 
         searchButton.setOnClickListener {
             val wordToSearch = insertedWordEditText.text.toString()
+            searchButton.visibility =  View.GONE
+            progressBar.visibility =  View.VISIBLE
             Thread{
 
                 val today =  getDayInMillis()
@@ -44,8 +68,9 @@ class SearchActivity : AppCompatActivity() {
                 val count: Int = requestToday?.count ?: 0
                 val countIncremented = count +1
 
-                getWordMeaning(wordToSearch, countIncremented, today, requestCountDao)
+                getWordMeaning(wordToSearch, countIncremented, today, requestCountDao, modalError, progressBar)
             }.start()
+
         }
 
         insertedWordEditText.addTextChangedListener(object : TextWatcher {
@@ -71,12 +96,12 @@ class SearchActivity : AppCompatActivity() {
 
     fun showSearchButton(insertedWord: CharSequence?, searchButton: Button){
         if (insertedWord.isNullOrEmpty()) {
-            searchButton.visibility =  View.INVISIBLE
+            searchButton.visibility =  View.GONE
         } else {
             searchButton.visibility =  View.VISIBLE
         }
     }
-    private fun getWordMeaning(word: String, count: Int, date:Long, requestCountDao: RequestCountDao){
+    private fun getWordMeaning(word: String, count: Int, date:Long, requestCountDao: RequestCountDao,modalError : LinearLayout,progressBar : ProgressBar){
         val retrofitClient = NetworkUtils.getRetrofitInstance("https://api.dictionaryapi.dev/", this )
         val endpoint = retrofitClient.create(Endpoint::class.java)
 
@@ -86,23 +111,29 @@ class SearchActivity : AppCompatActivity() {
         if (count <= 10 ){
             endpoint.getWordMeaning(word).enqueue(object : retrofit2.Callback<JsonArray>{
                 override fun onResponse(call: Call<JsonArray>, response: Response<JsonArray>) {
+                    if (response.isSuccessful){
+                        if (response.raw().cacheResponse() != null)  {
+                            Log.d("API Call", "Cache")
+                        }
 
-                    if (response.raw().cacheResponse() != null)  {
-                        Log.d("API Call", "Cache")
+                        val jsonArray = JSONArray(response.body().toString())
+                        val jsonStringList = mutableListOf<String>()
+                        for (i in 0 until jsonArray.length()) {
+                            jsonStringList.add(jsonArray.getJSONObject(i).toString())
+                        }
+                        val searchResponseList = jsonStringList.map {json.decodeFromString<SearchResponse>(it)}
+
+                        Thread{
+                            requestCountDao.upsert(RequestCount(count= count, requestDate= date))
+                        }.start()
+
+                        switchToResultScreen(searchResponseList[0])
+
+                    }else{
+                        Log.d("_____ **** Code", response.code().toString())
+                        modalError.visibility = View.VISIBLE
+                        progressBar.visibility = View.GONE
                     }
-
-                    val jsonArray = JSONArray(response.body().toString())
-                    val jsonStringList = mutableListOf<String>()
-                    for (i in 0 until jsonArray.length()) {
-                        jsonStringList.add(jsonArray.getJSONObject(i).toString())
-                    }
-                    val searchResponseList = jsonStringList.map {json.decodeFromString<SearchResponse>(it)}
-
-                    Thread{
-                        requestCountDao.upsert(RequestCount(count= count, requestDate= date))
-                    }.start()
-
-                    switchToResultScreen(searchResponseList[0])
                 }
 
                 override fun onFailure(call: Call<JsonArray>, t: Throwable) {
@@ -128,7 +159,6 @@ class SearchActivity : AppCompatActivity() {
 
     fun getDayInMillis(): Long {
         val calendar = Calendar.getInstance()
-
         calendar.set(Calendar.HOUR_OF_DAY, 0)
         calendar.set(Calendar.MINUTE, 0)
         calendar.set(Calendar.SECOND, 0)

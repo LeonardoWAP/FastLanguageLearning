@@ -4,7 +4,7 @@
     <string name="software_logo">"Logo of the name of the application called Diction Master"</string>
     <string name="software_name">"image of a school book with 2 letters A - Z"</string>
     <string name="fullscreen_button">"Toque para Mudar de Tela"</string>
-    <string name="by_name">by Leonardo Willers</string>
+    <string name="by_name">by Leonardo</string>
     <string name="new_search_title">That’s it for “%s”! ☺️"</string>
     <string name="new_search_button_title">New Search</string>
     <string name="new_search_subtitle">Try another search now!</string>
@@ -19,4 +19,5 @@
     <string name="word_title">Word</string>
     <string name="speaker">speaker</string>
     <string name="flag_image">United Kingdom Flag\n</string>
+    <string name="error_message">Word not found, please search for another!</string>
 </resources>

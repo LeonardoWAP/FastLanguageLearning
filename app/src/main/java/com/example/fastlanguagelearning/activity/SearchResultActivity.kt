@@ -1,14 +1,15 @@
 package com.example.fastlanguagelearning.activity
 
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Typeface
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -27,34 +28,33 @@ class SearchResultActivity : AppCompatActivity() {
         setContentView(R.layout.activity_result)
 
         val searchResponse = intent.getParcelableExtra<SearchResponse>("searchResponse")
-        val speakerImageView = findViewById<ImageView>(R.id.speaker_img)
+
+        val speakerButton = findViewById<Button>(R.id.speaker_button)
         val searchButton =  findViewById<Button>(R.id.new_search_button)
+        val phoneticLine = findViewById<LinearLayout>(R.id.phonetic_line)
+        speakerButton.isEnabled = false
 
         setTextInTextView(searchResponse!!.word.capitalize(), R.id.word_title)
-        setTextInTextView(getString(R.string.new_search_title, searchResponse.word),
-            R.id.new_search_title
-        )
-        setTextInTextView(getString(R.string.new_search_title, searchResponse.word),
-            R.id.new_search_title
-        )
+        setTextInTextView(getString(R.string.new_search_title, searchResponse.word), R.id.new_search_title)
+        setTextInTextView(getString(R.string.new_search_title, searchResponse.word),R.id.new_search_title)
 
-        setPhoneticTextAndAudio(searchResponse.phonetics)
+        setPhoneticTextAndAudio(searchResponse.phonetics, speakerButton, phoneticLine)
 
         setMeaningsInScreen(searchResponse.meanings)
 
-        speakerImageView.setOnClickListener{
+        speakerButton.setOnClickListener{
             playAudio(phoneticAudio)
         }
 
         searchButton.setOnClickListener {
             switchToSearchScreen()
-           // switchToPurchaseScreen()
         }
     }
 
     private fun createTextView(params: ViewGroup.LayoutParams, isTextBold: Boolean): TextView{
         val textViewDefinition = TextView(this)
         textViewDefinition.layoutParams = params
+        textViewDefinition.setTextColor(Color.parseColor("#052D39"))
         if(isTextBold){
             textViewDefinition.setTypeface(null, Typeface.BOLD)
         }
@@ -69,13 +69,12 @@ class SearchResultActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
-        textViewDefinitionParams.setMargins(0, 0, 0, 10)
 
         val textViewExampleParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
-        textViewExampleParams.setMargins(0, 0, 0, 30)
+        textViewExampleParams.setMargins(0, 0, 0, 5)
 
         for (meaning in  meanings) {
             val  definitions = meaning.definitions
@@ -93,15 +92,17 @@ class SearchResultActivity : AppCompatActivity() {
         }
     }
 
-    private fun setPhoneticTextAndAudio(phonetics: List<Phonetic>){
+    private fun setPhoneticTextAndAudio(phonetics: List<Phonetic>, speakerButton: Button, phoneticLine: LinearLayout ){
         for (phonetic in phonetics){
             if (!phonetic.audioUrl.isNullOrEmpty() and !phonetic.text.isNullOrEmpty()){
                 phoneticText = phonetic.text
                 phoneticAudio =  phonetic.audioUrl
+                speakerButton.isEnabled = true
                 break
             }
         }
-        setTextInTextView(phoneticText!!, R.id.phonetic_text)
+        setTextInTextView(phoneticText?:" ", R.id.phonetic_text)
+        checkAndRemoveAudioButton(phonetics, speakerButton, phoneticLine)
     }
 
     private fun setTextInTextView(text: String, textViewId: Int){
@@ -124,15 +125,11 @@ class SearchResultActivity : AppCompatActivity() {
 
     private fun switchToSearchScreen() {
         val intent = Intent(this, SearchActivity::class.java)
+        intent.putExtra("openKeyboard", true)
         startActivity(intent)
         finish()
     }
 
-    private fun switchToPurchaseScreen() {
-        val intent = Intent(this, PurchaseActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
     private fun playAudio(audioUrl: String?) {
         if (!audioUrl.isNullOrEmpty()) {
             try {
@@ -168,5 +165,21 @@ class SearchResultActivity : AppCompatActivity() {
         super.onDestroy()
         mediaPlayer?.release()
         mediaPlayer = null
+    }
+
+    private fun checkAndRemoveAudioButton(phonetics: List<Phonetic>, speakerButton: Button, phoneticLine: LinearLayout) {
+        var hasAudio = false
+        for (phonetic in phonetics) {
+            if (!phonetic.audioUrl.isNullOrEmpty()) {
+                hasAudio = true
+                break
+            }
+        }
+        if (!hasAudio) {
+            phoneticLine.visibility = View.GONE
+        } else {
+            phoneticLine.visibility = View.VISIBLE
+            speakerButton.visibility = View.VISIBLE
+        }
     }
 }
