@@ -67,13 +67,12 @@ class SearchResultActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
-        textViewDefinitionParams.setMargins(0, 0, 0, 10)
 
         val textViewExampleParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
-        textViewExampleParams.setMargins(0, 0, 0, 30)
+        textViewExampleParams.setMargins(0, 0, 0, 5)
 
         for (meaning in  meanings) {
             val  definitions = meaning.definitions
@@ -129,11 +128,6 @@ class SearchResultActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun switchToPurchaseScreen() {
-        val intent = Intent(this, PurchaseActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
     private fun playAudio(audioUrl: String?) {
         if (!audioUrl.isNullOrEmpty()) {
             try {

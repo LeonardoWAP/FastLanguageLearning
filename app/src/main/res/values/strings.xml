@@ -19,4 +19,5 @@
     <string name="word_title">Word</string>
     <string name="speaker">speaker</string>
     <string name="flag_image">United Kingdom Flag\n</string>
+    <string name="error_message">Word not found, please search for another!</string>
 </resources>

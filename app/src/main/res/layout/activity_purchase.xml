@@ -22,28 +22,29 @@
             android:layout_weight="0.6"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/girl_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:background="@drawable/purchase_img"
-                tools:ignore="MissingConstraints" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="-65dp"
                 android:layout_marginBottom="0dp"
                 android:layout_weight="0.8">
 
                 <ImageView
-                    android:id="@+id/img_icon"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/girl_image"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="50dp"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/purchase_img"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <ImageView
+                    android:id="@+id/img_icon"
+                    android:layout_width="119dp"
+                    android:layout_height="106dp"
                     android:src="@drawable/icon"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/girl_image"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,10 +53,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="431dp"
+                    android:layout_marginBottom="76dp"
                     android:contentDescription="@string/software_name"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.435"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/girl_image"
                     app:srcCompat="@drawable/title"
                     tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -79,6 +84,7 @@
 
 
                 android:layout_weight="0.5"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:gravity="center"
                 android:text="@string/purchase_subscribe_title"
                 android:textAlignment="center"
@@ -92,6 +98,7 @@
                 android:layout_weight="0.5"
 
 
+                android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:text="@string/purchase_subscribe_info"
                 android:textAlignment="center"
@@ -115,7 +122,7 @@
                 android:layout_marginEnd="27dp"
                 android:layout_marginBottom="0dp"
                 android:background="@drawable/search_button_background"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:letterSpacing="0.018"
                 android:text="@string/subscribe_button"
                 android:textAllCaps="true"
