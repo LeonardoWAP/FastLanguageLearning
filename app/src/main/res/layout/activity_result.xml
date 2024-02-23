@@ -105,7 +105,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="11dp"
-                                    android:fontFamily="sans-serif-condensed-medium"
+                                    android:fontFamily="@font/roboto_condensed_light"
                                     android:text="@string/phonetic_text"
                                     android:textColor="@color/phonetic_color"
                                     android:textSize="22sp"

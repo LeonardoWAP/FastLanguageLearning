@@ -40,8 +40,6 @@ class SearchActivity : AppCompatActivity() {
         val modalError = findViewById<LinearLayout>(R.id.linear_layout_error_message)
 
 
-
-
         if (intent.getBooleanExtra("openKeyboard", false)) {
             insertedWordEditText.requestFocus()
         }

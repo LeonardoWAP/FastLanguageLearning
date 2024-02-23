@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Parcelize
 @Serializable
 data class Phonetic (
-    val text : String,
+    val text : String? = null,
     @SerialName("audio")
-    val audioUrl : String
+    val audioUrl : String? = null
 ): Parcelable

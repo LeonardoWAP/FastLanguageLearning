@@ -4,6 +4,7 @@
     android:id="@+id/seven_days"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".activity.MainActivity">
 
 
@@ -19,50 +20,56 @@
             android:id="@+id/L1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.6"
+            android:layout_weight="0.3"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-65dp"
-                android:layout_marginBottom="0dp"
-                android:layout_weight="0.8">
+                android:layout_height="match_parent">
+
 
                 <ImageView
                     android:id="@+id/girl_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="120dp"
                     android:layout_weight="0.2"
                     android:background="@drawable/purchase_img"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="0dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.6"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
                     android:id="@+id/img_icon"
-                    android:layout_width="119dp"
-                    android:layout_height="106dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="340dp"
                     android:src="@drawable/icon"
-                    app:layout_constraintBottom_toBottomOf="@+id/girl_image"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintEnd_toEndOf="@id/girl_image"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="@id/girl_image"
+                    app:layout_constraintTop_toTopOf="@id/girl_image" />
 
                 <ImageView
                     android:id="@+id/software_name_purchase_screen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="431dp"
-                    android:layout_marginBottom="76dp"
+                    android:layout_marginTop="90dp"
                     android:contentDescription="@string/software_name"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.435"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/girl_image"
+                    app:layout_constraintTop_toTopOf="@+id/img_icon"
+                    app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/title"
                     tools:ignore="MissingConstraints" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
@@ -73,7 +80,7 @@
             android:layout_height="0dp"
             android:layout_marginLeft="30sp"
             android:layout_marginRight="30sp"
-            android:layout_weight="0.3"
+            android:layout_weight="0.1"
             android:orientation="vertical">
 
             <TextView
@@ -95,9 +102,11 @@
                 android:id="@+id/subscribe_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+
+
+                android:layout_marginRight="5dp"
                 android:layout_weight="0.5"
-
-
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:text="@string/purchase_subscribe_info"
@@ -112,6 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <Button
