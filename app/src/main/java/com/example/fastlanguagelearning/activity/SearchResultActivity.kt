@@ -1,6 +1,7 @@
 package com.example.fastlanguagelearning.activity
 
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Typeface
 import android.media.AudioAttributes
 import android.media.MediaPlayer
@@ -53,6 +54,7 @@ class SearchResultActivity : AppCompatActivity() {
     private fun createTextView(params: ViewGroup.LayoutParams, isTextBold: Boolean): TextView{
         val textViewDefinition = TextView(this)
         textViewDefinition.layoutParams = params
+        textViewDefinition.setTextColor(Color.parseColor("#052D39"))
         if(isTextBold){
             textViewDefinition.setTypeface(null, Typeface.BOLD)
         }

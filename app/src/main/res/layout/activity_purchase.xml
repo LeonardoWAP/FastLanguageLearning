@@ -27,7 +27,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-
                 <ImageView
                     android:id="@+id/girl_image"
                     android:layout_width="wrap_content"
@@ -88,13 +87,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="0sp"
-
-
                 android:layout_weight="0.5"
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:gravity="center"
                 android:text="@string/purchase_subscribe_title"
                 android:textAlignment="center"
+                android:textColor="@color/text_color"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -109,6 +107,7 @@
                 android:layout_weight="0.5"
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
+                android:textColor="@color/text_color"
                 android:text="@string/purchase_subscribe_info"
                 android:textAlignment="center"
                 android:textSize="16sp" />

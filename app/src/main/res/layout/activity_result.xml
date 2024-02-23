@@ -53,6 +53,7 @@
                             android:layout_marginEnd="13dp"
                             android:fontFamily="@font/roboto_condensed_bold"
                             android:text="@string/word_title"
+                            android:textColor="@color/text_color"
                             android:textSize="45sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -158,6 +159,7 @@
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:text="@string/new_search_title"
+                android:textColor="@color/text_color"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -172,6 +174,7 @@
                 android:text="@string/new_search_subtitle"
                 android:textSize="16sp"
                 tools:layout_editor_absoluteX="30dp"
+                android:textColor="@color/text_color"
                 tools:layout_editor_absoluteY="593dp" />
 
             <Button
